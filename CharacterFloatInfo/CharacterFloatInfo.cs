@@ -159,62 +159,62 @@ namespace CharacterFloatInfo
         private static void OnGUI(UnityModManager.ModEntry modEntry)
         {
             GUILayout.BeginHorizontal();
-            GUILayout.Label("浮窗显示区域");
+            GUILayout.Label("Floating Window Active in the following situations");
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
-            settings.enableMAL = GUILayout.Toggle(settings.enableMAL, "地块人物");
-            settings.enableMAN = GUILayout.Toggle(settings.enableMAN, "地块邻格");
-            settings.enableTA = GUILayout.Toggle(settings.enableTA, "主画面同道");
-            settings.enableDI = GUILayout.Toggle(settings.enableDI, "对话对象");
-            settings.enableMAC = GUILayout.Toggle(settings.enableMAC, "对话选择人物");
-            settings.enableBW = GUILayout.Toggle(settings.enableBW, "村民分配");
-            settings.enableAM = GUILayout.Toggle(settings.enableAM, "同道列表");
-            settings.enableRI = GUILayout.Toggle(settings.enableRI, "人物关系");
-            settings.enableWNV = GUILayout.Toggle(settings.enableWNV, "新村民");
-            settings.enableWA = GUILayout.Toggle(settings.enableWA, "工作村民");
+            settings.enableMAL = GUILayout.Toggle(settings.enableMAL, "Local tile");
+            settings.enableMAN = GUILayout.Toggle(settings.enableMAN, "Adjacent tile");
+            settings.enableTA = GUILayout.Toggle(settings.enableTA, "Main screen teammates");
+            settings.enableDI = GUILayout.Toggle(settings.enableDI, "Conversation target");
+            settings.enableMAC = GUILayout.Toggle(settings.enableMAC, "Conversation choices");
+            settings.enableBW = GUILayout.Toggle(settings.enableBW, "Villager assignment");
+            settings.enableAM = GUILayout.Toggle(settings.enableAM, "Teammate list");
+            settings.enableRI = GUILayout.Toggle(settings.enableRI, "Relationship Tab");
+            settings.enableWNV = GUILayout.Toggle(settings.enableWNV, "New villager");
+            settings.enableWA = GUILayout.Toggle(settings.enableWA, "Working Villager");
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
-            GUILayout.Label("展示內容");
+            GUILayout.Label("Info to show");
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
-            settings.showActorId = GUILayout.Toggle(settings.showActorId, "人物ID");
-            settings.showActorStatus = GUILayout.Toggle(settings.showActorStatus, "人物状况");
-            settings.showCharacteristic = GUILayout.Toggle(settings.showCharacteristic, "人物特性");
-            settings.showLevel = GUILayout.Toggle(settings.showLevel, "人物属性");
-            settings.showFamilySkill = GUILayout.Toggle(settings.showFamilySkill, "技艺造诣");
-            settings.showResources = GUILayout.Toggle(settings.showResources, "七元賦性");
-            settings.showBest = GUILayout.Toggle(settings.showBest, "最佳物品、功法");
-            settings.lifeMessage = GUILayout.Toggle(settings.lifeMessage, "人物经历");
-            settings.showShopid = GUILayout.Toggle(settings.showShopid, "其他人所属商会");
+            settings.showActorId = GUILayout.Toggle(settings.showActorId, "Character ID");
+            settings.showActorStatus = GUILayout.Toggle(settings.showActorStatus, "Status");
+            settings.showCharacteristic = GUILayout.Toggle(settings.showCharacteristic, "Traits");
+            settings.showLevel = GUILayout.Toggle(settings.showLevel, "Basic Stats");
+            settings.showFamilySkill = GUILayout.Toggle(settings.showFamilySkill, "Art attainment");
+            settings.showResources = GUILayout.Toggle(settings.showResources, "7 instinct");
+            settings.showBest = GUILayout.Toggle(settings.showBest, "Best item and skill");
+            settings.lifeMessage = GUILayout.Toggle(settings.lifeMessage, "Recent events");
+            settings.showShopid = GUILayout.Toggle(settings.showShopid, "merchant guild if become a merchant");
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
-            GUILayout.Label("简约显示");
+            GUILayout.Label("Only show important info in the following");
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
-            settings.shortMAL = GUILayout.Toggle(settings.shortMAL, "地块人物列表");
-            settings.shortTA = GUILayout.Toggle(settings.shortTA, "主角及同道头像");
-            settings.shortDI = GUILayout.Toggle(settings.shortDI, "对话界面");
-            settings.shortAM = GUILayout.Toggle(settings.shortAM, "人物信息界面");
-            settings.shortRI = GUILayout.Toggle(settings.shortRI, "人物关系界面");
+            settings.shortMAL = GUILayout.Toggle(settings.shortMAL, "Local tile");
+            settings.shortTA = GUILayout.Toggle(settings.shortTA, "Teammate's portrait");
+            settings.shortDI = GUILayout.Toggle(settings.shortDI, "Conversation");
+            settings.shortAM = GUILayout.Toggle(settings.shortAM, "Character info tab");
+            settings.shortRI = GUILayout.Toggle(settings.shortRI, "Relationship tab");
             GUILayout.EndHorizontal();
             GUILayout.BeginHorizontal();
-            GUILayout.Label("其他设定");
+            GUILayout.Label("Other settings");
             GUILayout.EndHorizontal();
-            settings.showSexuality = GUILayout.Toggle(settings.showSexuality, "显示性取向");
-            settings.addonInfo = GUILayout.Toggle(settings.addonInfo, "比对原始信息");
-            settings.deadActor = GUILayout.Toggle(settings.deadActor, "显示已故人物信息");
-            settings.showIV = GUILayout.Toggle(settings.showIV, "显示隐藏的人物特性");
-            settings.hideShopInfo = GUILayout.Toggle(settings.hideShopInfo, "隐藏商人的详细信息");
+            settings.showSexuality = GUILayout.Toggle(settings.showSexuality, "Sexuality");
+            settings.addonInfo = GUILayout.Toggle(settings.addonInfo, "Compare to original stats");
+            settings.deadActor = GUILayout.Toggle(settings.deadActor, "Show info of the dead");
+            settings.showIV = GUILayout.Toggle(settings.showIV, "Show hidden traits");
+            settings.hideShopInfo = GUILayout.Toggle(settings.hideShopInfo, "Hide details for merchants");
 
-            settings.useColorOfTeachingSkill = GUILayout.Toggle(settings.useColorOfTeachingSkill, "标记可学技艺的最高品阶");
+            settings.useColorOfTeachingSkill = GUILayout.Toggle(settings.useColorOfTeachingSkill, "Show the highest level of art you can consult");
             GUILayout.BeginHorizontal("Box");
-            GUILayout.Label("颜色计算基于", GUILayout.Width(150));
-            settings.colorLevelBaseOn = GUILayout.SelectionGrid(settings.colorLevelBaseOn, new string[] { "门派红字", "门派橙字", "门派黄字", "门派紫字", "大城", "村镇关寨" }, 6);
+            GUILayout.Label("Colour calculation based on", GUILayout.Width(160));
+            settings.colorLevelBaseOn = GUILayout.SelectionGrid(settings.colorLevelBaseOn, new string[] { "sect red", "sect orange", "sect yellow", "sect purple", "city", "village" }, 6);
             GUILayout.FlexibleSpace();
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal("Box");
-            GUILayout.Label("窗口最小宽度", GUILayout.Width(150));
+            GUILayout.Label("Minimum width of popup", GUILayout.Width(160));
             if (int.TryParse(GUILayout.TextArea(settings.minWidth.ToString(), GUILayout.Width(50)), out var value))
             {
                 settings.minWidth = value;
@@ -555,7 +555,6 @@ namespace CharacterFloatInfo
                     //建筑/地图左边的列表
                     if (array[0] == "PlaceActor(Clone)" && tips.transform.parent.name == "ActorHolder" && Characters.HasChar(id))
                     {
-                        Main.Logger.Log("Hi there"); // debug
                         if (WorldMapSystem.instance.choosePlaceId == DateFile.instance.mianPlaceId) //当前格显示
                         {
                             needShow = Main.settings.enableMAL;
@@ -653,8 +652,8 @@ namespace CharacterFloatInfo
         private static string SetLevelText(int id)
         {
             string text = "";
-            text += $"{(isDead ? "享年" : "岁数")}:\u00A0{GetAge(id)}\n";
-            text += $"寿命:\u00A0{GetHealth(id)}";
+            text += $"{(isDead ? "Age at death" : "Age")}:\u00A0{GetAge(id)}\n";
+            text += $"Max age:\u00A0{GetHealth(id)}";
             return text;
         }
 
@@ -688,8 +687,8 @@ namespace CharacterFloatInfo
             {
                 ClearFavourHolder();
                 //text += string.Format("{0}{1}{2}", DateFile.instance.massageDate[16][1], DateFile.instance.samsara, DateFile.instance.massageDate[16][2]); // 第X代太吾
-                text += $"促织福缘 <color>{DateFile.instance.getQuquTrun}</color>";
-                text += $"\n生平遗惠 <color>{GetActorScore()}</color>";
+                text += $"Cricket karma <color>{DateFile.instance.getQuquTrun}</color>";
+                text += $"\nLife legacy <color>{GetActorScore()}</color>";
             }
             return text;
         }
@@ -785,7 +784,7 @@ namespace CharacterFloatInfo
 
             if (isDead)
             {
-                text.Append(seperator + DateFile.instance.SetColoer(20009, "过世"));
+                text.Append(seperator + DateFile.instance.SetColoer(20009, "Dead"));
                 // todo: 投胎至:XX村，人名
             }
             else if (DateFile.instance.actorInjuryDate.ContainsKey(id))
@@ -811,23 +810,23 @@ namespace CharacterFloatInfo
                 switch (dmgtyp)
                 {
                     case 1:
-                        text.Append(seperator + DateFile.instance.SetColoer(20010, "受伤"));
+                        text.Append(seperator + DateFile.instance.SetColoer(20010, "Injured"));
                         break;
                     case 2:
-                        text.Append(seperator + DateFile.instance.SetColoer(20007, "中毒"));
+                        text.Append(seperator + DateFile.instance.SetColoer(20007, "Poisoned"));
                         break;
                     case 3:
-                        text.Append(seperator + DateFile.instance.SetColoer(20010, "受伤") + "&" + DateFile.instance.SetColoer(20007, "中毒"));
+                        text.Append(seperator + DateFile.instance.SetColoer(20010, "Injured") + " & " + DateFile.instance.SetColoer(20007, "Poisoned"));
                         break;
                     default:
-                        text.Append(seperator + DateFile.instance.SetColoer(20004, "健康"));
+                        text.Append(seperator + DateFile.instance.SetColoer(20004, "Healthy"));
                         break;
                 }
             }
 
             if (smallerWindow || windowType == WindowType.BuildingWindow || windowType == WindowType.WorkingActor)
                 return text.ToString();
-            if (GetGangLevelText(id) == "商人")
+            if (GetGangLevelText(id).ToLower() == "merchant")
             {
                 text.Append(seperator + DateFile.instance.SetColoer(20006, GetShopName(id)));
             }
@@ -838,7 +837,7 @@ namespace CharacterFloatInfo
                     text.Append(seperator + DateFile.instance.SetColoer(20002, GetShopName(id)));
                 }
             }
-            text.Append(seperator + "战" + DateFile.instance.GetActorDate(id, 993, true));
+            text.Append(seperator + "Power" + DateFile.instance.GetActorDate(id, 993, true));
 
             return text.ToString();
         }
@@ -854,7 +853,7 @@ namespace CharacterFloatInfo
             var text = new StringBuilder();
             SetInfoMessage1(text, id, ref ___tipsW);
             text.Append("\n");
-            SetInfoMessage2(text, id, ref ___tipsW, 10, out var rowCount);
+            SetInfoMessage2(text, id, ref ___tipsW, 4, out var rowCount);
             SetInfoMessage3(text, id);
             SetInfoMessage4(text, id, rowCount);
             SetInfoMessage5(text, id);
@@ -868,25 +867,25 @@ namespace CharacterFloatInfo
         /// <returns></returns>
         private static void SetInfoMessage1(StringBuilder text, int id, ref int ___tipsW)
         {
-            text.Append("魅力:" + GetCharm(id));
-            text.Append("\t立场:" + GetGoodness(id));
-            text.Append("\t名誉:" + GetFame(id));
-            text.Append("\t心情:" + GetMood(id));
-            text.Append("\t印象:" + GetLifeFace(id));
+            text.Append("FAS: " + GetCharm(id));
+            text.Append("\tStandpoint: " + GetGoodness(id));
+            text.Append("\tReputation: " + GetFame(id));
+            text.Append("\tMood: " + GetMood(id));
+            text.Append("\tImpression: " + GetLifeFace(id));
             int evil = DateFile.instance.GetLifeDate(id, 501, 0);
-            text.Append("\t入魔:" + (evil < 0 ? 0 : evil));
+            text.Append("\tCorruption: " + (evil < 0 ? 0 : evil));
             text.Append("\n\n");
 
             if (!smallerWindow)
             {
-                text.Append($"轮回:<color=white>{GetSamsara(id)}</color>");
+                text.Append($"Reincarnation: <color=white>{GetSamsara(id)}</color>");
 
-                text.Append(GetSamsara(id) != "0" ? $" ◆ 前世:<color=white>{GetSamsaraName(id)}</color>" : "");
+                text.Append(GetSamsara(id) != "0" ? $" ◆ Previous Life: <color=white>{GetSamsaraName(id)}</color>" : "");
 
                 string item = Gethobby(id, 0);
-                text.Append($"\t喜好:<color={(item == "未知" ? "gray" : "white")}>{item}</color>");
+                text.Append($"\tLikes: <color={(item?.ToLower() == "unknown" ? "gray" : "white")}>{item}</color>");
                 item = Gethobby(id, 1);
-                text.Append($"\t厌恶:<color={(item == "未知" ? "gray" : "white")}>{item}</color>");
+                text.Append($"\tDislikes: <color={(item?.ToLower() == "unknown" ? "gray" : "white")}>{item}</color>");
 
                 if (Main.settings.showIV)
                 {
@@ -898,37 +897,37 @@ namespace CharacterFloatInfo
                         {
                             if (rest > 1000)
                             {
-                                text.Append($"\t孕期剩余<color=white>{rest - 1000}</color>个月");
+                                text.Append($"\t<color=white>{rest - 1000}</color> months remain in pregnancy\n");
                             }
                             else
                             {
-                                text.Append($"\t孕期剩余<color=white>{rest}</color>个月");
+                                text.Append($"\t<color=white>{rest}</color> months remain in pregnancy\n");
                                 //if (rest == 2 || rest == 4 || rest == 6) text += $",下个月可能出现胎教事件";
                             }
                         }
                         else
                         {
                             rest += 100;
-                            text.Append($"\t{rest}个月内无法怀孕");
+                            text.Append($"\tCannot conceive for {rest} months\n");
                         }
                     }
                     else
                     {
                         int result1 = GetFertility(id, true);
                         int result2 = GetFertility(id, false);
-                        text.Append($"\t生育:<color={(result2 > 0 ? "+" : "") + result2}>{result1}%</color>");
+                        text.Append($"\tFertility: <color={(result2 > 0 ? "+" : "") + result2}>{result1}%</color>");
                         if (Main.settings.addonInfo && result2 != 0)
                             text.Append($"\t<color=#606060FF>{(result2 > 0 ? "+" : "") + result2}%</color>");
                     }
                 }
 
                 if (GetAge(id) > ConstValue.actorMinAge)
-                    text.Append($"\t子嗣:<color=white>{DateFile.instance.GetActorSocial(id, 310, false, false).Count}</color>");
+                    text.Append($"\tChildren: <color=white>{DateFile.instance.GetActorSocial(id, 310, false, false).Count}</color>");
                 // todo: 改為顯示所有孩子名
 
-                text.Append($"\t威望:<color=white>{int.Parse(DateFile.instance.GetActorDate(id, 407, false))}</color>");
+                text.Append($"\tPrestige: <color=white>{int.Parse(DateFile.instance.GetActorDate(id, 407, false))}</color>");
 
-                text.Append($"\t银钱:<color=white>{DateFile.instance.ActorResource(id)[5]}</color>");
+                text.Append($"\tMoney: <color=white>{DateFile.instance.ActorResource(id)[5]}</color>");
             }
             else if (windowType == WindowType.BuildingWindow || windowType == WindowType.WorkingActor)
             {
@@ -938,12 +937,12 @@ namespace CharacterFloatInfo
                 int partId, placeId, buildingIndex;
                 var date = DateFile.instance.actorsWorkingDate;
 
-                text.Append("工作岗位:");
+                text.Append("Position: ");
 
                 int[] city = DateFile.instance.ActorIsWorking(id);
                 if (city == null)
                 {
-                    text.Append("<color=#606060FF>无</color>");
+                    text.Append("<color=#606060FF>None</color>");
                 }
                 else
                 {
@@ -954,13 +953,13 @@ namespace CharacterFloatInfo
                     var aBuilding = workingData.FirstOrDefault(t => t.Value == id);
                     if (aBuilding.Equals(default(KeyValuePair<int, int>)))
                     {
-                        text.Append("<color=red>未知</color>");
+                        text.Append("<color=red>Unknown</color>");
                     }
                     else
                     {
                         buildingIndex = aBuilding.Key;
                         text.Append($"<color=white>{GetWorkPlace(partId, placeId, buildingIndex)}</color>");
-                        text.Append("\t进度:<color=white>" + GetWorkingProgress(partId, placeId, buildingIndex) + "</color>");
+                        text.Append("\tProgress: <color=white>" + GetWorkingProgress(partId, placeId, buildingIndex) + "</color>");
                     }
                 }
                 partId = HomeSystem.instance.homeMapPartId;
@@ -969,7 +968,7 @@ namespace CharacterFloatInfo
                     return;
                 buildingIndex = HomeSystem.instance.homeMapbuildingIndex;
                 if (!workingData2.TryGetValue(buildingIndex, out int workerId) || workerId != id)
-                    text.Append($"\n村民派遣，预期效率:<color=white>{GetExpectEfficient(id, partId, placeId, buildingIndex)}</color>");
+                    text.Append($"\nVillager Assignment, Expected efficiency: <color=white>{GetExpectEfficient(id, partId, placeId, buildingIndex)}</color>");
 
             }
             else if (windowType == WindowType.DialogChooseActors && martialQuests.Contains(MessageEventManager.Instance.MainEventData[2]))
@@ -979,12 +978,12 @@ namespace CharacterFloatInfo
                 int gangWorldId = int.Parse(DateFile.instance.GetGangDate(gangId, 11));
                 int gangPartId = int.Parse(DateFile.instance.GetGangDate(gangId, 3));
                 int partValue = DateFile.instance.GetBasePartValue(gangWorldId, gangPartId) / 10;
-                text.Append($"地区恩义:<color=white>{partValue}%</color>");
+                text.Append($"Local Deeds:<color=white>{partValue}%</color>");
                 switch (MessageEventManager.Instance.MainEventData[2])
                 {
                     case 9301: // 念经忏悔
                         int fame = Math.Min(0, GetActorFame(id));
-                        text.Append($"\t\t罪孽:<color={(fame < 0 ? "red" : "white")}>{fame}</color>");
+                        text.Append($"\t\tSins: <color={(fame < 0 ? "red" : "white")}>{fame}</color>");
                         break;
                     case 9321: // 治疗伤病
                     case 9303: // 起死回生
@@ -992,14 +991,14 @@ namespace CharacterFloatInfo
                         int maxHp = DateFile.instance.MaxHp(id, 100);
                         int Sp = DateFile.instance.Sp(id, false);
                         int maxSp = DateFile.instance.MaxSp(id, 100);
-                        text.Append($"\t\t外伤:<color={(Hp == 0 ? "white" : "red")}>{Hp}/{maxHp}</color>\t\t内伤:<color={(Sp == 0 ? "white" : "red")}>{Sp}/{maxSp}</color>");
+                        text.Append($"\t\tExt Injury: <color={(Hp == 0 ? "white" : "red")}>{Hp}/{maxHp}</color>\t\tInt Injury: <color={(Sp == 0 ? "white" : "red")}>{Sp}/{maxSp}</color>");
                         break;
                     case 9307: // 王禅典籍
-                        text.Append($"\t\t处世立场:{GetGoodness(id)}");
+                        text.Append($"\t\tStandpoint: {GetGoodness(id)}");
                         break;
                     case 9310: // 秘药延寿
                         int year = DateFile.instance.Health(id);
-                        text.Append($"\t\t寿命余下<color={(year > 1 ? "white" : "red")}>{year}</color>年");
+                        text.Append($"\t\tRemaining lifespan <color={(year > 1 ? "white" : "red")}>{year}</color> years");
                         break;
                     case 9366: // 驱除毒素
                     case 9312: // 五圣秘浴
@@ -1009,11 +1008,11 @@ namespace CharacterFloatInfo
                             if (DateFile.instance.GetActorDate(id, i) != "0")
                                 poise += DateFile.instance.poisonDate[i - 51][0] + ":" + DateFile.instance.GetActorDate(id, i);
                         }
-                        text.Append(poise == "" ? "\t\t无中毒" : poise);
+                        text.Append(poise == "" ? "\t\tNot poisoned" : poise);
                         break;
                     case 9304: // 七星调元
                         float hurt = int.Parse(DateFile.instance.GetActorDate(id, 39)) / 10;
-                        text.Append($"\t\t內息:<color={(hurt == 0 ? "white" : "red")}>{hurt:0.#}</color>");
+                        text.Append($"\t\tInternal breath: <color={(hurt == 0 ? "white" : "red")}>{hurt:0.#}</color>");
                         break;
                     case 9308: // 玉镜沉思
                         int canDeductCount = 0, canEnchanceCount = 0;
@@ -1032,11 +1031,11 @@ namespace CharacterFloatInfo
                             }
                         }
                         if (canEnchanceCount > 0)
-                            text.Append("\t\t<color=white>可舞劍:" + canEnchanceCount + "</color>");
+                            text.Append("\t\t<color=white>Sword Dance:" + canEnchanceCount + "</color>");
                         if (canDeductCount > 0)
-                            text.Append("\t\t<color=white>可撫琴:" + canDeductCount + "</color>");
+                            text.Append("\t\t<color=white>Play Zither:" + canDeductCount + "</color>");
                         if (canDeductCount == 0 && canEnchanceCount == 0)
-                            text.Append("\t\t<color=#606060FF>不能提升</color>");
+                            text.Append("\t\t<color=#606060FF>Can not improve</color>");
                         break;
                     case 9305: // 石牢静坐
                     case 9315: // 血池秘法
@@ -1049,7 +1048,7 @@ namespace CharacterFloatInfo
                                 if (actorFeatures.Contains(featureID))
                                 {
                                     var featureName = DateFile.instance.actorFeaturesDate[featureID][0];
-                                    text.Append($"\t\t状态:<color={(featureID == 9997 ? "white" : "red")}>{featureName}</color>");
+                                    text.Append($"\t\tStatus: <color={(featureID == 9997 ? "white" : "red")}>{featureName}</color>");
                                     break;
                                 }
                             }
@@ -1222,7 +1221,7 @@ namespace CharacterFloatInfo
             int typ = (index < 100 ? 501 : 500) + index;
             int skillValue = GetSkillGongFaValue(actorId, typ);
             int skillDiffer = skillValue - int.Parse(DateFile.instance.GetActorDate(actorId, typ, false));
-            string familySkill = smallerWindow || !Main.settings.showFamilySkill ? "" : GetFamilySkillnGongFa(actorId, index) + "，";
+            string familySkill = smallerWindow || !Main.settings.showFamilySkill ? "" : GetFamilySkillnGongFa(actorId, index) + ", ";
             bool shownoadd = !smallerWindow && Main.settings.addonInfo;
             string text = DateFile.instance.SetColoer(20001 + Mathf.Clamp(GetMaxSkillLevel(actorId, typ), 1, 9),
                 string.Format("{0}<color=orange>{1}{2}</color>{3}{4}<color=#606060ff>{5}{6}</color>",
@@ -1439,9 +1438,9 @@ namespace CharacterFloatInfo
             buildingIndex = aBuilding.Key;
 
             text.Append("\n"
-                        + "工作岗位:"
+                        + "Position: "
                         + $"<color=white>{GetWorkPlace(partId, placeId, buildingIndex)}</color>"
-                        + "\t进度:<color=white>"
+                        + "\tProgress: <color=white>"
                         + GetWorkingProgress(partId, placeId, buildingIndex)
                         + "</color>");
             return;
@@ -1467,7 +1466,7 @@ namespace CharacterFloatInfo
                 int lifeDate = DateFile.instance.GetLifeDate(actorId, 1001, 1);
                 return $"<color=white>{DateFile.instance.identityDate[faceId][0]}</color><color=lime>{lifeDate}%</color>";
             }
-            return "<color=#606060FF>无</color>";
+            return "<color=#606060FF>None</color>";
         }
 
         /// <summary>
@@ -1587,7 +1586,7 @@ namespace CharacterFloatInfo
         /// <returns></returns>
         private static string GetShopName(int id)
         {
-            if (GetGangLevelText(id) == "商人" || Main.settings.showShopid)
+            if (GetGangLevelText(id).ToLower() == "merchant" || Main.settings.showShopid)
             {
                 int typ = int.Parse(DateFile.instance.GetGangDate(int.Parse(DateFile.instance.GetActorDate(id, 9, false)), 16));
                 return $"{DateFile.instance.storyShopDate[typ][0]}";
@@ -1647,9 +1646,9 @@ namespace CharacterFloatInfo
                 var bestText = DateFile.instance.massageDate[8001][2].Split('|')[bestLevel - 1];
                 bestText = DateFile.instance.SetColoer(20001 + bestLevel, bestText);
                 // 商人详细信息：
-                return "商人信息:  "
-                    + $"可售{bestText}" + $"  好感:<color>{storyShopLevel / 50}%+{addlevel / 50}%</color>"
-                    + $"  买卖价格:<color>{shopSystemCost}%/{shopSellCost}%</color>"
+                return "Merchant info:  "
+                    + $"can sell {bestText}" + $"  relationship:<color>{storyShopLevel / 50}%+{addlevel / 50}%</color>"
+                    + $"  purchase cost:<color>{shopSystemCost}%/{shopSellCost}%</color>"
                     + "\n";
             }
             return "";
@@ -1701,8 +1700,8 @@ namespace CharacterFloatInfo
                     actorEquipments.Add(GetItemColorName(itemID));
                 }
             }
-            return "人物装备: " + (actorEquipments.Count == 0 ?
-                DateFile.instance.SetColoer(20002, GetGenderTA(id) + "赤身裸体在你眼前") :
+            return "Equipment: " + (actorEquipments.Count == 0 ?
+                DateFile.instance.SetColoer(20002, GetGenderTA(id) + " is currently naked") :
                 string.Join(", ", actorEquipments)) + "\n";
         }
 
@@ -1781,9 +1780,9 @@ namespace CharacterFloatInfo
         private static string GetBestGongfa(int actorId)
         {
             if (DateFile.instance.actorGongFas.ContainsKey(actorId))
-                return "最佳功法: " + GetBestGongfaText(GetGongfaList(actorId)) + "\n";
+                return "Best skill: " + GetBestGongfaText(GetGongfaList(actorId)) + "\n";
             else
-                return DateFile.instance.SetColoer(20002, GetGenderTA(actorId) + "还没来得及学") + "\n";
+                return DateFile.instance.SetColoer(20002, GetGenderTA(actorId) + " has yet to learn") + "\n";
         }
 
         /// <summary>
@@ -1815,10 +1814,10 @@ namespace CharacterFloatInfo
             string bestName = GetBestGongfaText(nGongFas);
             int bestGongfaCount = (bestName == "") ? 0 : bestName.Split(',').Length;
 
-            bestName = bestName == "" ? DateFile.instance.SetColoer(20002, DateFile.instance.eventDate[9159][3].Replace("我", GetGenderTA(actorId))) : bestName;
-            if (bestGongfaCount < nGongFas.Count) bestName = $"{bestName} 及 {nGongFas.Count - bestGongfaCount} 种低阶功法";
-            string result = "可学功法: " + bestName + "\n";
-            if (nGongFasUnfamiliar.Count > 0) result += $"\n待熟练功法: {GetBestGongfaText(nGongFasUnfamiliar)}\n";
+            bestName = bestName == "" ? DateFile.instance.SetColoer(20002, DateFile.instance.eventDate[9159][3].Replace("I don’t", GetGenderTA(actorId)+" doesn't")) : bestName;
+            if (bestGongfaCount < nGongFas.Count) bestName = $"{bestName} and {nGongFas.Count - bestGongfaCount} lower tier skils";
+            string result = "Can learn: " + bestName + "\n";
+            if (nGongFasUnfamiliar.Count > 0) result += $"\nWaiting to be practiced: {GetBestGongfaText(nGongFasUnfamiliar)}\n";
             return result;
         }
 
@@ -1853,8 +1852,8 @@ namespace CharacterFloatInfo
                     bestItems.Add(itemName);
                 }
             }
-            return "最佳物品: " + (bestItems.Count == 0 ?
-                DateFile.instance.SetColoer(20002, GetGenderTA(id) + "是个穷光蛋") :
+            return "Best item: " + (bestItems.Count == 0 ?
+                DateFile.instance.SetColoer(20002, GetGenderTA(id) + " is poor") :
                 string.Join(", ", bestItems)) + " \t" + GetItemWeight(id) + "\n";
         }
 
@@ -1886,7 +1885,7 @@ namespace CharacterFloatInfo
             int[] buildingData = DateFile.instance.homeBuildingsDate[partId][placeId][buildingIndex];
             int buildingType = buildingData[0];
             if (buildingType == 1003)
-                return "此人正在厢房摸鱼……";
+                return "is relaxing...";
 
             Dictionary<int, string> buildingSetting = DateFile.instance.basehomePlaceDate[buildingType];
 
@@ -2049,20 +2048,20 @@ namespace CharacterFloatInfo
                 }
                 if (hasRightOne)
                 {
-                    result = DateFile.instance.SetColoer(20009, "可媒", false); // 可以说媒
+                    result = DateFile.instance.SetColoer(20009, "Matchmaker", false); // 可以说媒
                 }
                 else if (actorSocial2.Count <= 0)
                 {
-                    result = DateFile.instance.SetColoer(20004, "未婚", false); // 未婚
+                    result = DateFile.instance.SetColoer(20004, "Single", false); // 未婚
                 }
                 else
                 {
-                    result = DateFile.instance.SetColoer(20007, "丧偶", false); // 丧偶
+                    result = DateFile.instance.SetColoer(20007, "Partner dead", false); // 丧偶
                 }
             }
             else
             {
-                result = DateFile.instance.SetColoer(20010, "已婚", false);// 已婚
+                result = DateFile.instance.SetColoer(20010, "Married", false);// 已婚
             }
 
             if (Main.settings.showSexuality && !isDead) result += " • " + GetSexuality(id);
@@ -2080,8 +2079,6 @@ namespace CharacterFloatInfo
         /// </remarks>
         private static string GetLifeMessage(int actorId, int shownum) //shownum控制显示几条信息
         {
-            int index;
-            int count;
             if (actorId != lastActorID)
             {
                 actorMassageCache.Clear();
@@ -2097,11 +2094,8 @@ namespace CharacterFloatInfo
                 var allRecords = LifeRecords.GetAllRecords(actorId);
                 if (allRecords != null)
                 {
-                    count = allRecords.Length;
-                    index = count >= shownum ? count - shownum : 0;
-                    for (int i = index; i < count; i++)
+                    foreach(LifeRecords.LifeRecord record in allRecords)
                     {
-                        var record = allRecords[i];
                         if (DateFile.instance.actorMassageDate.TryGetValue(record.messageId, out var msgData))
                         {
                             int num3 = int.Parse(DateFile.instance.actorMassageDate[record.messageId][4]);
@@ -2181,7 +2175,7 @@ namespace CharacterFloatInfo
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        private static string GetSexuality(int id) => DateFile.instance.GetActorDate(id, 21, false) == "0" ? "直" : "双";
+        private static string GetSexuality(int id) => DateFile.instance.GetActorDate(id, 21, false) == "0" ? "Straight" : "Bisexual";
 
         /// <summary>
         /// 获取性别文字
@@ -2205,7 +2199,7 @@ namespace CharacterFloatInfo
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        private static string GetGenderTA(int id) => DateFile.instance.GetActorDate(id, 14, false) == "2" ? "她" : "他";
+        private static string GetGenderTA(int id) => DateFile.instance.GetActorDate(id, 14, false) == "2" ? "She" : "He";
 
         /// <summary>
         /// 只保留物品名称第一行括号前面的内容
@@ -2235,7 +2229,7 @@ namespace CharacterFloatInfo
             Transform actorFeatureHolder = WindowManage.instance.informationMassage.transform.Find("ActorFeatureHolder");
             if (actorFeatureHolder == null)
             {
-                actorFeatureHolder = UnityEngine.Object.Instantiate(ActorMenu.instance.actorFeatureHolder, new Vector3(-20f, -70f, 1), Quaternion.identity);
+                actorFeatureHolder = UnityEngine.Object.Instantiate(ActorMenu.instance.actorFeatureHolder, new Vector3(-20f, -90f, 1), Quaternion.identity);
                 actorFeatureHolder.name = "ActorFeatureHolder";
                 actorFeatureHolder.localScale = new Vector3(.73f, .73f, 1);
                 actorFeatureHolder.GetComponent<RectTransform>().sizeDelta = new Vector2(500f, 0);

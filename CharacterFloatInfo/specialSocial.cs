@@ -13,7 +13,7 @@ namespace CharacterFloatInfo
     {
         public string GetStr()
         {
-            return "测试成功";
+            return "test successful";
         }
         List<string> socialWords = new List<string> { };
 
@@ -34,7 +34,7 @@ namespace CharacterFloatInfo
         //获取父母所在组织等级
         public string GetParentGangLevel(int actorId)
         {
-            return "健在";
+            return "alive";
         }
         //获取父母存活情况
         public string GetParentAlive(int actorId)
@@ -46,27 +46,27 @@ namespace CharacterFloatInfo
             switch (count)
             {
                 case 0:
-                    return "无父无母";
+                    return "no parents";
                     //break;
                 case 1:
-                    return "不知生父";
+                    return "father unknown";
                     //break;
                 case 2:
                     switch (count2)
                     {
                         case 0:
-                            return "父母双亡";
+                            return "both parents dead";
                             //break;
                         case 1:
-                            return "孤父寡母";
+                            return "Single parent";
                             //break;
                         case 2:
-                            return "双亲健在";
+                            return "both parents alive";
                             //break;
                     }
                     break;
                 case 3:
-                    return "父母再婚";
+                    return "parents remarried";
                     //break;
             }
             return "";
@@ -91,10 +91,10 @@ namespace CharacterFloatInfo
                 int gangLv = GetGangLevelId(nid);
                 if (gangLv % 10 <= 3)
                 {
-                    socialWords.Add("高干子弟"); 
+                    socialWords.Add("Children of high ranks");
                     break;
                 }
-            }            
+            }
             return string.Join(", ", socialWords.ToArray());
         }
 
