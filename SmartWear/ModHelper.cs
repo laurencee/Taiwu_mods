@@ -22,8 +22,8 @@ namespace Litfal
             GUILayout.EndHorizontal();
         }
 
-        static readonly string[] _gongFaBtnStrings = new string[] { "<color=#808080>不切換</color>", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖" };
-        static readonly string[] _equipGroupBtnStrings = new string[] { "<color=#808080>不切換</color>", "壹", "贰", "叁" };
+        static readonly string[] _gongFaBtnStrings = new string[] { "<color=#808080>None</color>", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+        static readonly string[] _equipGroupBtnStrings = new string[] { "<color=#808080>None</color>", "1", "2", "3" };
 
         static public void GongFaSelection(string text, ref int settingField)
         {

@@ -16,9 +16,9 @@ namespace SmartWear
         {
             var df = DateFile.instance;
             if (charId != df.mianActorId) return;
-//#if (DEBUG)
-//            Main.Logger.Log($"現在內息: {df.GetActorMianQi(charId)}");
-//#endif 
+            //#if (DEBUG)
+            //            Main.Logger.Log($"現在內息: {df.GetActorMianQi(charId)}");
+            //#endif 
             if (!Main.Enabled) return;
 
             if (Main.settings.RestAutoEquip)
@@ -35,7 +35,7 @@ namespace SmartWear
                 {
                     foreach (var item in items.Take(3))
                     {
-                        Main.Logger.Log($"裝備: {item} ({df.GetItemDate(item, 0, false)}), 內息: { df.GetItemDateValue(item, ItemDateKey.MianQi)}");
+                        Main.Logger.Log($"equipment: {item} ({df.GetItemDate(item, 0, false)}), Inner interest: { df.GetItemDateValue(item, ItemDateKey.MianQi)}");
                     }
                 }
                 StateManager.EquipWeapons(items.Take(3));
@@ -51,7 +51,7 @@ namespace SmartWear
         {
             if (charId != DateFile.instance.mianActorId) return;
 #if (DEBUG)
-            Main.Logger.Log($"內息變化量: {modifiedData?.ChangeMianQi.LastOrDefault().Value }");
+            Main.Logger.Log($"Intermittent change: {modifiedData?.ChangeMianQi.LastOrDefault().Value }");
 #endif
             if (Main.Enabled)
                 StateManager.RestoreAll();

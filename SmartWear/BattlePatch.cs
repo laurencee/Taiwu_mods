@@ -20,7 +20,7 @@ namespace SmartWear
             {
                 if (Main.settings.EnabledLog)
                 {
-                    Main.Logger.Log($"切換裝備: {Main.settings.StartSkillBattleEquipGroupIndex}");
+                    Main.Logger.Log($"Switching equipment: {Main.settings.StartSkillBattleEquipGroupIndex}");
                 }
                 ControlHelper.ChangeEquipGroup(Main.settings.StartSkillBattleEquipGroupIndex);
             }
@@ -39,7 +39,7 @@ namespace SmartWear
             {
                 if (Main.settings.EnabledLog)
                 {
-                    Main.Logger.Log($"切換功法: {Main.settings.StartBattleGongFaIndex}");
+                    Main.Logger.Log($"Switching method: {Main.settings.StartBattleGongFaIndex}");
                 }
                 ControlHelper.ChangeGongFa(Main.settings.StartBattleGongFaIndex);
             }
@@ -47,7 +47,7 @@ namespace SmartWear
             {
                 if (Main.settings.EnabledLog)
                 {
-                    Main.Logger.Log($"切換裝備: {Main.settings.StartBattleEquipGroupIndex}");
+                    Main.Logger.Log($"Switching equipment: {Main.settings.StartBattleEquipGroupIndex}");
                 }
                 ControlHelper.ChangeEquipGroup(Main.settings.StartBattleEquipGroupIndex);
             }

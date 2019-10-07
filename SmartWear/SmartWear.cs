@@ -27,7 +27,7 @@ namespace SmartWear
             modEntry.OnToggle = OnToggle;
             modEntry.OnGUI = OnGUI;
             modEntry.OnSaveGUI = OnSaveGUI;
-            
+
             return true;
         }
 
@@ -44,40 +44,40 @@ namespace SmartWear
 
             GUILayout.BeginVertical("Box");
             // GUILayoutHelper.Title("練功 <color=#A0A0A0>(修習、突破、研讀)</color>");
-            GUILayoutHelper.GongFaSelection("<color=#80FF80>練功</color>時使用功法", ref settings.HomeSystemGongFaIndex);
-            settings.HomeSystemAutoAccessories = GUILayout.Toggle(settings.HomeSystemAutoAccessories, "<color=#80FF80>練功</color>時自動裝備適合的飾品 (資質優先，悟性其次)");
-            settings.AdvancedReadBookMode = GUILayout.Toggle(settings.AdvancedReadBookMode, "進階研讀模式：難度超過 50% 則資質優先、悟性其次；否則悟性優先");
+            GUILayoutHelper.GongFaSelection("<color=#80FF80>Practice</color> Set", ref settings.HomeSystemGongFaIndex);
+            settings.HomeSystemAutoAccessories = GUILayout.Toggle(settings.HomeSystemAutoAccessories, "<color=#80FF80>Practice</color> Automatically equip suitable accessories (Qualification priority, comprehension second)");
+            settings.AdvancedReadBookMode = GUILayout.Toggle(settings.AdvancedReadBookMode, "Advanced study mode: if the difficulty is more than 50%, prioritize qualification; otherwise prioritize comprehension");
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
             // GUILayoutHelper.Title("製造 <color=#A0A0A0>(锻造、制木、炼药、炼毒、织锦、制石、烹飪)</color>");
-            settings.MakeSystemAutoAccessories = GUILayout.Toggle(settings.MakeSystemAutoAccessories, "<color=#80FF80>製造</color>時自動裝備適合的飾品");
+            settings.MakeSystemAutoAccessories = GUILayout.Toggle(settings.MakeSystemAutoAccessories, "<color=#80FF80>Manufacturing</color>: Automatically equip suitable accessories");
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
-            settings.HealingAutoAccessories = GUILayout.Toggle(settings.HealingAutoAccessories, "<color=#80FF80>療傷</color>與<color=#80FF80>驅毒</color>自動裝備適合的飾品 <color=#FF8080>※如果不在城鎮/門派格，將不會使用倉庫裡的裝備※</color>");
+            settings.HealingAutoAccessories = GUILayout.Toggle(settings.HealingAutoAccessories, "<color=#80FF80>Healing</color> and <color=#80FF80>Detoxification</color>: Automatically equip suitable accessories <color=#FF8080>※If you are not in a town, you will not use equipment from storage ※</color>");
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
-            GUILayoutHelper.GongFaSelection("跨月恢復<color=#80FF80>內息</color>時使用功法", ref settings.RestGongFaIndex);
-            settings.RestAutoEquip = GUILayout.Toggle(settings.RestAutoEquip, "跨月恢復<color=#80FF80>內息</color>時自動裝備適合的武器 (內息優先) <color=#FF8080>※如果不在城鎮/門派格，將不會使用倉庫裡的裝備※</color>");
+            GUILayoutHelper.GongFaSelection("Cross-month recovery <color=#80FF80>Inner art</color> set", ref settings.RestGongFaIndex);
+            settings.RestAutoEquip = GUILayout.Toggle(settings.RestAutoEquip, "Cross-month recovery <color=#80FF80>Inner art</color>: Automatically equip suitable weapons (Internal art priority) <color=#FF8080>※If you are not in a town, you will not use equipment from storage ※</color>");
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
-            GUILayoutHelper.GongFaSelection("進入<color=#80FF80>戰鬥</color>準備畫面時，使用指定功法", ref settings.StartBattleGongFaIndex);
-            GUILayoutHelper.EquipGroupSelection("進入<color=#80FF80>戰鬥</color>準備畫面時，使用指定裝備", ref settings.StartBattleEquipGroupIndex);
-            GUILayout.Label("<color=#FF8080>※戰鬥後不會換回※</color>");
+            GUILayoutHelper.GongFaSelection("<color=#80FF80>Battle</color>: Use inner art set on preparation screen", ref settings.StartBattleGongFaIndex);
+            GUILayoutHelper.EquipGroupSelection("<color=#80FF80>Battle</color>: Use equipment set on preparation screen", ref settings.StartBattleEquipGroupIndex);
+            GUILayout.Label("<color=#FF8080>※It will not be swapped back after the battle ※</color>");
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
-            GUILayoutHelper.EquipGroupSelection("進入<color=#80FF80>較藝</color>準備畫面時，使用指定裝備", ref settings.StartSkillBattleEquipGroupIndex);
-            GUILayout.Label("<color=#FF8080>※較藝後不會換回※</color>");
+            GUILayoutHelper.EquipGroupSelection("<color=#80FF80>Competition</color>: Use equipment set on preparation screen", ref settings.StartSkillBattleEquipGroupIndex);
+            GUILayout.Label("<color=#FF8080>※It will not be swapped back after the competition ※</color>");
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
             GUILayout.BeginHorizontal();
-            settings.EnabledLog = GUILayout.Toggle(settings.EnabledLog, "輸出偵錯資訊，可於log內檢視切換歷程");
-            if (GUILayout.Button("開啟UnityModManager.log"))
+            settings.EnabledLog = GUILayout.Toggle(settings.EnabledLog, "Output debugging information, you can view the switching history in the log");
+            if (GUILayout.Button("Open UnityModManager.log"))
             {
                 string logFilePath = System.IO.Path.GetFullPath(System.IO.Path.Combine(modEntry.Path, @"../UnityModManager.log"));
                 if (logFilePath != null && System.IO.File.Exists(logFilePath))
@@ -169,7 +169,7 @@ namespace SmartWear
             {
                 foreach (var item in accessories.Take(3))
                 {
-                    Main.Logger.Log($"裝備: {item.Id} ({DateFile.instance.GetItemDate(item.Id, 0, false)}), {((ItemDateKey)item.AptitudeType).GetDescription()}: {item.AptitudeUp}, 悟性: {item.ComprehensionUp}");
+                    Main.Logger.Log($"equipment: {item.Id} ({DateFile.instance.GetItemDate(item.Id, 0, false)}), {((ItemDateKey)item.AptitudeType).GetDescription()}: {item.AptitudeUp}, Comprehension: {item.ComprehensionUp}");
                 }
             }
         }
@@ -181,7 +181,7 @@ namespace SmartWear
             if (currentGongFaIndex == gongFaIndex) return;
             if (Main.settings.EnabledLog)
             {
-                Main.Logger.Log($"切換功法: {gongFaIndex}");
+                Main.Logger.Log($"Switching method: {gongFaIndex}");
             }
             _originGongFaIndex = currentGongFaIndex;
             ControlHelper.ChangeGongFaTemporarily(gongFaIndex);
@@ -207,12 +207,12 @@ namespace SmartWear
                         continue;
                     case ItemFrom.Bag:
                         if (Main.settings.EnabledLog)
-                            Main.Logger.Log($"脫下裝備:{detail.ItemId} ({df.GetItemDate(detail.ItemId, 0, false)})@{((ActorsDateKey)detail.SlotId).GetDescription()} to 包裹");
+                            Main.Logger.Log($"Take off equipment:{detail.ItemId} ({df.GetItemDate(detail.ItemId, 0, false)})@{((ActorsDateKey)detail.SlotId).GetDescription()} to package");
                         ControlHelper.TakeoffEquipToBag(detail.SlotId);
                         break;
                     case ItemFrom.Warehouse:
                         if (Main.settings.EnabledLog)
-                            Main.Logger.Log($"脫下裝備:{detail.ItemId} ({df.GetItemDate(detail.ItemId, 0, false)})@{((ActorsDateKey)detail.SlotId).GetDescription()} to 倉庫");
+                            Main.Logger.Log($"Take off equipment:{detail.ItemId} ({df.GetItemDate(detail.ItemId, 0, false)})@{((ActorsDateKey)detail.SlotId).GetDescription()} to warehouse");
                         ControlHelper.TakeoffEquipToWarehouse(detail.SlotId);
                         break;
                     case ItemFrom.Unknow:
@@ -227,7 +227,7 @@ namespace SmartWear
                 ControlHelper.WearEquipFromBag(detail.SlotId, detail.ItemId);
                 if (Main.settings.EnabledLog)
                 {
-                    Main.Logger.Log($"換回裝備:{detail.ItemId} ({df.GetItemDate(detail.ItemId, 0, false)})@{((ActorsDateKey)detail.SlotId).GetDescription()}");
+                    Main.Logger.Log($"Exchange equipment:{detail.ItemId} ({df.GetItemDate(detail.ItemId, 0, false)})@{((ActorsDateKey)detail.SlotId).GetDescription()}");
                 }
             }
             _originEquitments.Clear();
@@ -242,14 +242,14 @@ namespace SmartWear
                 {
                     if (Main.settings.EnabledLog)
                     {
-                        Main.Logger.Log($"換回功法: {_originGongFaIndex}");
+                        Main.Logger.Log($"Change back to practice: {_originGongFaIndex}");
                     }
                     // ActorMenu.instance.ChangeEquipGongFa(_originGongFaIndex);
                     ControlHelper.ChangeGongFaTemporarily(_originGongFaIndex);
                 }
                 _originGongFaIndex = -1;
             }
-            
+
         }
 
         public static void EquipWeapons(IEnumerable<int> items)
@@ -299,9 +299,9 @@ namespace SmartWear
                         throw new Exception($"Unknow item from: {item}");
                 }
                 actorsDateKey++;
-//#if (DEBUG)
-//                Main.Logger.Log($"Equip:{item}");
-//#endif
+                //#if (DEBUG)
+                //                Main.Logger.Log($"Equip:{item}");
+                //#endif
             }
         }
     }
@@ -357,7 +357,7 @@ namespace SmartWear
 
     public class ItemHelper
     {
-        
+
 
         //static public IQueryable<int> ApplyFilter(IQueryable<int> items)
         //{
@@ -548,7 +548,7 @@ namespace SmartWear
         /// <param name="aptitudeType">資質種類, 505XX & 506XX </param>
         /// <returns></returns>
         static public IEnumerable<ItemData> GetEquipAptitudeUpAccessories(int aptitudeType)
-        { 
+        {
             return FilterInEquip(GetEquipItems(), aptitudeType, ItemSource.Equipment);
         }
 
