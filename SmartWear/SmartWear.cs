@@ -46,7 +46,7 @@ namespace SmartWear
             // GUILayoutHelper.Title("練功 <color=#A0A0A0>(修習、突破、研讀)</color>");
             GUILayoutHelper.GongFaSelection("<color=#80FF80>Practice</color> Set", ref settings.HomeSystemGongFaIndex);
             settings.HomeSystemAutoAccessories = GUILayout.Toggle(settings.HomeSystemAutoAccessories, "<color=#80FF80>Practice</color> Automatically equip suitable accessories (Qualification priority, comprehension second)");
-            settings.AdvancedReadBookMode = GUILayout.Toggle(settings.AdvancedReadBookMode, "Advanced study mode: if the difficulty is more than 50%, prioritize qualification; otherwise prioritize comprehension");
+            settings.AdvancedReadBookMode = GUILayout.Toggle(settings.AdvancedReadBookMode, "Advanced study mode: if difficulty > 50%, prioritize talents; otherwise prioritize comprehension");
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
@@ -59,8 +59,8 @@ namespace SmartWear
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
-            GUILayoutHelper.GongFaSelection("Cross-month recovery <color=#80FF80>Inner art</color> set", ref settings.RestGongFaIndex);
-            settings.RestAutoEquip = GUILayout.Toggle(settings.RestAutoEquip, "Cross-month recovery <color=#80FF80>Inner art</color>: Automatically equip suitable weapons (Internal art priority) <color=#FF8080>※If you are not in a town, you will not use equipment from storage ※</color>");
+            GUILayoutHelper.GongFaSelection("End of month <color=#80FF80>Qi</color> recovery <color=#80FF80>Inner art</color> set", ref settings.RestGongFaIndex);
+            settings.RestAutoEquip = GUILayout.Toggle(settings.RestAutoEquip, "End of month <color=#80FF80>Qi</color> recovery <color=#80FF80>Inner art</color>: Automatically equip suitable weapons (Internal art priority) <color=#FF8080>※If you are not in a town, you will not use equipment from storage ※</color>");
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
@@ -70,8 +70,8 @@ namespace SmartWear
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
-            GUILayoutHelper.EquipGroupSelection("<color=#80FF80>Competition</color>: Use equipment set on preparation screen", ref settings.StartSkillBattleEquipGroupIndex);
-            GUILayout.Label("<color=#FF8080>※It will not be swapped back after the competition ※</color>");
+            GUILayoutHelper.EquipGroupSelection("<color=#80FF80>Debate</color>: Use equipment set on preparation screen", ref settings.StartSkillBattleEquipGroupIndex);
+            GUILayout.Label("<color=#FF8080>※It will not be swapped back after the debate ※</color>");
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical("Box");
