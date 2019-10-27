@@ -258,7 +258,8 @@ namespace KeyBoardShortCut
             });
             Utils.ButtonConfirm(component.CGet<Button>("StartSkillLevelUpButton"), (b) => {
                 return 1 == studyChooseTyp.GetValue<int>() && 
-                    !__instance.setStudyWindow.gameObject.activeInHierarchy;
+                    !__instance.setStudyWindow.gameObject.activeInHierarchy &&
+                    !StudyWindow.instance.gameObject.activeInHierarchy;
             });
             Utils.ButtonHK(__instance.removeLevelUPButton, HK_TYPE.REMOVE_ITEM, (b) => {
                 return 1 == studyChooseTyp.GetValue<int>();
@@ -271,7 +272,8 @@ namespace KeyBoardShortCut
             });
             Utils.ButtonConfirm(component.CGet<Button>("StartReadBookButton"), (b) => {
                 return 2 == studyChooseTyp.GetValue<int>() && 
-                    !__instance.bookWindow.activeInHierarchy;
+                    !__instance.bookWindow.activeInHierarchy && 
+                    !ReadBook.instance.gameObject.activeInHierarchy;
             });
             Utils.ButtonHK(__instance.removeReadBookButton, HK_TYPE.REMOVE_ITEM, (b) => {
                 return 2 == studyChooseTyp.GetValue<int>();
@@ -380,7 +382,7 @@ namespace KeyBoardShortCut
         {
             if (!Main.on) return;
             Refers component = __instance.GetComponent<Refers>();
-            Utils.ButtonConfirm(component.CGet<Button>("StartMakeButton"));
+            Utils.ButtonConfirm(component.CGet<Button>("StartMakeButton"), (_) => !Checks.HasDialog() && !__instance.makeingImage.activeInHierarchy);
             Utils.ButtonConfirm(component.CGet<Button>("StartFixButton"));
             Utils.ButtonConfirm(component.CGet<Button>("GetItemButton"));
         }
@@ -420,6 +422,17 @@ namespace KeyBoardShortCut
         }
     }
 
+    // 进入主界面功法树
+    [HarmonyPatch(typeof(ChoosePlaceWindow), "Awake")]
+    public static class ChoosePlaceWindow_ToGongfaTree_Patch
+    {
+        private static void Postfix(ChoosePlaceWindow __instance)
+        {
+            if (!Main.on) return;
+            Utils.ButtonHK(__instance.showGongFaTreeButton, HK_TYPE.GONGFA_TREE, (_) => !Utils.isUIActive("ui_PartWorldMap"));
+        }
+    }
+
     // 进入人物搜索
     [HarmonyPatch(typeof(ui_MiniMap), "Awake")]
     public static class ui_MiniMap_ToNameScan_Patch
@@ -439,6 +452,17 @@ namespace KeyBoardShortCut
         {
             if (!Main.on) return;
             Utils.ButtonHK(Traverse.Create(__instance).Field<CButton>("ShowMap").Value, HK_TYPE.WORLD_MAP);
+        }
+    }
+
+    // 进入功法树
+    [HarmonyPatch(typeof(ui_PartWorldMap), "Awake")]
+    public static class ui_PartWorldMap_ToGongFaTree_Patch
+    {
+        private static void Postfix(ui_PartWorldMap __instance)
+        {
+            if (!Main.on) return;
+            Utils.ButtonHK(Traverse.Create(__instance).Field<CButton>("ShowGongFaTree").Value, HK_TYPE.GONGFA_TREE);
         }
     }
 
@@ -468,8 +492,61 @@ namespace KeyBoardShortCut
             if (ToStoryMenu.toStoryIsShow) return false;
             if (ShopSystem.Exists) return false;
             if (YesOrNoWindow.instance.yesOrNoIsShow) return false;
+            if (Utils.isUIActive("ui_Dialog")) return false;
             return true;
+        }
+    }    
+    // 蛐蛐战斗 选择蛐蛐 蛐蛐结束
+    [HarmonyPatch(typeof(QuquBattleSystem), "Start")]
+    public static class QuquBattleSystem_UseQUQU_Patch
+    {
+        private static void Postfix(QuquBattleSystem __instance)
+        {
+            if (!Main.on) return;
+            Utils.ButtonConfirm(__instance.useItemButton);
+            foreach(var b in __instance.nextButton)
+            {
+                Utils.ButtonConfirm(b);
+            }
+            Utils.ButtonConfirm(__instance.closeBattleButton.GetComponent<Button>());
         }
     }
 
+
+    // 地图继续移动
+    [HarmonyPatch(typeof(WorldMapSystem), "ShowChoosePlaceMenu")]
+    public static class WorldMapSystem_ShowChoosePlaceMenu_Patch
+    {
+        private static void Prefix(int worldId, int partId, int placeId, Transform placeImage)
+        {
+            if (!Main.on) return;
+            WorldMapSystem_KeepMove_Patch.worldId = worldId;
+            WorldMapSystem_KeepMove_Patch.partId = partId;
+            WorldMapSystem_KeepMove_Patch.placeId = placeId;
+            WorldMapSystem_KeepMove_Patch.placeImage = placeImage;
+        }
+    }
+
+    // 地图继续移动
+    [HarmonyPatch(typeof(WorldMapSystem), "Awake")]
+    public static class WorldMapSystem_KeepMove_Patch
+    {
+        public static int worldId;
+        public static int partId;
+        public static int placeId;
+        public static Transform placeImage;
+        
+        private static void Postfix(WorldMapSystem __instance)
+        {
+            if (!Main.on) return;
+            __instance.gameObject
+                .AddComponent<ActionsComponent>()
+                .OnCheck(HK_TYPE.MAP_MOVE)
+                .OnCheck(_ => DateFile.instance.mianWorldId == worldId)
+                .OnCheck(_ => DateFile.instance.mianPartId == partId)
+                .OnCheck(_ => __instance.worldMapPlaces[placeId] != null)
+                .OnCheck(_ => __instance.worldMapPlaces[placeId].gameObject.activeInHierarchy)
+                .AddAction(() => __instance.ShowChoosePlaceMenu(worldId, partId, placeId, placeImage));
+        }
+    }
 }
